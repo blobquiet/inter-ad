@@ -1,0 +1,28 @@
+This must be installed:
+-----------------
+mysql
+composer
+php >5.6.4
+-----------------
+> Once cloned, inside de project folder do:
+
+#~ composer update
+#~ login to localhost/phpmyadmin
+
+1-create a new database with name inter-ad
+2-rename .env.example with .env
+3-configure database on .env file:
+	...
+	DB_DATABASE=inter-ad
+	DB_USERNAME=*your username for access*
+	DB_PASSWORD=*your password for access*
+	...
+4-create new tables with: php artisan migrate
+5-create default user for system with: php artisan db:seed
+6-Execute: php artisan key:generate
+7-Execute: php artisan config:clear
+8-Execute: php artisan serve
+9-default login:
+          username: dacastro
+          email: dacastro@uao.edu.co
+          password: root
