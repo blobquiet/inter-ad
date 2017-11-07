@@ -22,8 +22,8 @@
       <form method="POST" action="{{ route('evento.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Search'])
-          @component('layouts.two-cols-search-row', ['items' => ['First Name', 'Department_Name'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['infoEv'] : '']])
+          @component('layouts.two-cols-search-row', ['items' => ['name'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '']])
           @endcomponent
         @endcomponent
       </form>

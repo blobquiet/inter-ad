@@ -57,10 +57,10 @@
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <a href="{{ route('cliente-management.edit', ['id' => $cliente->id]) }}" class="btn btn-warning col-sm-3 col-xs-5 btn-margin">
-                        Update
+                        Actualizar
                         </a>
                          <button type="submit" class="btn btn-danger col-sm-3 col-xs-5 btn-margin">
-                          Delete
+                          Borrar
                         </button>
                     </form>
                   </td>

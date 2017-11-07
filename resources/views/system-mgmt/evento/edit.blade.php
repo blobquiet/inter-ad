@@ -25,7 +25,7 @@
                             </div>
                           </div>
 
-                          <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                          <div class="form-group{{ $errors->has('infoEv') ? ' has-error' : '' }}">
                               <label for="infoEv" class="col-md-4 control-label">Información</label>
                               <div class="col-md-6">
                                   <input id="infoEv" type="text" class="form-control" name="infoEv" value="{{ $evento->infoEv }}" required autofocus>

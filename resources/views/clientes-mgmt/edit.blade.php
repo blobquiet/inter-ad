@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                          
+
                         <div class="form-group">
                             <label for="avatar" class="col-md-4 control-label" >Picture</label>
                             <div class="col-md-6">
@@ -87,7 +87,7 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Update
+                                    Actualizar
                                 </button>
                             </div>
                         </div>
