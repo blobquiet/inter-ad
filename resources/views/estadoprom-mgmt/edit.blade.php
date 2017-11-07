@@ -11,7 +11,7 @@
                         <input type="hidden" name="_method" value="PATCH">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-group{{ $errors->has('estado') ? ' has-error' : '' }}">
-                            <label for="estado" class="col-md-4 control-label">Estado</label>
+                            <label for="estado" class="col-md-4 control-label">estadoprom estado</label>
 
                             <div class="col-md-6">
                                 <input id="estado" type="text" class="form-control" name="estado" value="{{ $estadoprom->estado }}" required autofocus>

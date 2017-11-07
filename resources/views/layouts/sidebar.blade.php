@@ -32,7 +32,6 @@
       <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
         <li class="active"><a href="/">&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;</i> <span>Inicio</span></a></li>
-        <li><a href="{{ url('employee-management') }}"><i class="fa fa-link"></i> <span>Employee management</span></a></li>
         <li><a href="{{ url('cliente-management') }}"><i class="fa fa-link"></i> <span>Gestor de cliente</span></a></li>
         <li><a href="{{ url('promocion-management') }}"><i class="fa fa-link"></i> <span>Gestor de promoción</span></a></li>
 
@@ -43,11 +42,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ url('system-management/department') }}">Department</a></li>
-            <li><a href="{{ url('system-management/division') }}">Division</a></li>
-            <li><a href="{{ url('system-management/country') }}">Country</a></li>
-            <li><a href="{{ url('system-management/state') }}">State</a></li>
-            <li><a href="{{ url('system-management/city') }}">City</a></li>
+
 
             <li><a href="{{ url('estadoprom-management') }}">Estado Prom</a></li>
             <li><a href="{{ url('system-management/pais') }}">Pais</a></li>
@@ -56,7 +51,6 @@
             <li><a href="{{ url('system-management/empresa') }}">Empresa</a></li>
             <li><a href="{{ url('system-management/evento') }}">Evento</a></li>
 
-            <li><a href="{{ url('system-management/report') }}">Report</a></li>
           </ul>
         </li>
         <li><a href="{{ route('user-management.index') }}"><i class="fa fa-link"></i> <span>Gestor de usuarios</span></a></li>

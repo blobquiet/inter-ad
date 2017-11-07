@@ -90,13 +90,13 @@ class EstadoPromManagementController extends Controller
      */
     public function edit($id)
     {
-        $estadoprom = estadoprom::find($id);
+        $estadoprom = Estadoprom::find($id);
         // Redirect to state list if updating state wasn't existed
         if ($estadoprom == null || count($estadoprom) == 0) {
             return redirect()->intended('/estadoprom-management');
         }
-        $clientes = cliente::all();
-        $promociones = promocion::all();
+        $clientes = Cliente::all();
+        $promociones = Promocion::all();
         return view('estadoprom-mgmt/edit', ['estadoprom' => $estadoprom, 'clientes' => $clientes, 'promociones' => $promociones]);
     }
 
@@ -108,15 +108,15 @@ class EstadoPromManagementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
+
     {
-        $estadoprom = estadoprom::findOrFail($id);
+        $estadoprom = Estadoprom::findOrFail($id);
         $this->validateInput($request);
         // Upload image
         $keys = ['estado','clientes_id', 'promociones_id'];
         $input = $this->createQueryInput($keys, $request);
 
-
-        estadoprom::where('id', $id)
+        Estadoprom::where('id', $id)
             ->update($input);
 
         return redirect()->intended('/estadoprom-management');
