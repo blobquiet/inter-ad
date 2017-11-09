@@ -148,7 +148,7 @@ class EmpresaController extends Controller
     }
 
     private function doSearchingQuery($constraints) {
-        
+
 
     $query = DB::table('empresa')
     ->leftJoin('ciudad', 'empresa.ciudad_id', '=', 'ciudad.id')
