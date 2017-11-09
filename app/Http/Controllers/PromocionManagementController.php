@@ -30,8 +30,8 @@ class PromocionManagementController extends Controller
     {
         $promociones = DB::table('promociones')
 
-        ->leftJoin('empresa', 'promociones.empresa_id', '=', 'empresa.id')
-        ->leftJoin('evento', 'promociones.evento_id', '=', 'evento.id')
+        ->join('empresa', 'promociones.empresa_id', '=', 'empresa.id')
+        ->join('evento', 'promociones.evento_id', '=', 'evento.id')
         ->select('promociones.*', 'empresa.name as empresa_name', 'empresa.id as empresa_id', 'evento.name as evento_name', 'evento.id as evento_id')
         ->paginate(5);
 
@@ -146,11 +146,13 @@ class PromocionManagementController extends Controller
     public function search(Request $request) {
         $constraints = [
           'nombre' => $request['nombre'],
-          'empresa.name' => $request['empresa_name']
+          'empresa.name' => $request['empresa_name'],
+          'evento.name' => $request['evento_name']
             ];
         $promociones = $this->doSearchingQuery($constraints);
 
         $constraints['empresa_name'] = $request['empresa_name'];
+        $constraints['evento_name'] = $request['evento_name'];
         return view('promociones-mgmt/index', ['promociones' => $promociones, 'searchingVals' => $constraints]);
     }
 

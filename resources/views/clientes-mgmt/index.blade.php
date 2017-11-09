@@ -22,8 +22,12 @@
       <form method="POST" action="{{ route('cliente-management.search') }}">
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Buscar'])
-          @component('layouts.two-cols-search-row', ['items' => ['nombre', 'correo'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['nombre'] : '', isset($searchingVals) ? $searchingVals['correo'] : '']])
+          @component('layouts.two-cols-search-row', ['items' => ['nombre', 'apellido'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['nombre'] : '', isset($searchingVals) ? $searchingVals['apellido'] : '']])
+          @endcomponent
+          <br>
+          @component('layouts.two-cols-search-row', ['items' => ['correo', 'direccion'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['correo'] : '', isset($searchingVals) ? $searchingVals['direccion'] : '']])
           @endcomponent
         @endcomponent
       </form>

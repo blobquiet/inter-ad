@@ -25,7 +25,11 @@
           @component('layouts.two-cols-search-row', ['items' => ['nombre', 'Empresa_Name'],
           'oldVals' => [isset($searchingVals) ? $searchingVals['nombre'] : '', isset($searchingVals) ? $searchingVals['empresa_name'] : '']])
           @endcomponent
+        </br>
+        @component('layouts.two-cols-search-row', ['items' => ['Evento_Name'],
+        'oldVals' => [isset($searchingVals) ? $searchingVals['evento_name'] : '']])
         @endcomponent
+      @endcomponent
       </form>
     <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
       <div class="row">
@@ -87,7 +91,7 @@
       </div>
       <div class="row">
         <div class="col-sm-5">
-          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Showing 1 to {{count($promociones)}} of {{count($promociones)}} entries</div>
+          <div class="dataTables_info" id="example2_info" role="status" aria-live="polite">Mostrando a {{count($promociones)}} de {{count($promociones)}} entradas</div>
         </div>
         <div class="col-sm-7">
           <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">

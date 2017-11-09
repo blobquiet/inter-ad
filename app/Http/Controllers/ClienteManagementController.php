@@ -140,7 +140,9 @@ class ClienteManagementController extends Controller
     public function search(Request $request) {
         $constraints = [
             'nombre' => $request['nombre'],
-            'correo' => $request['correo']
+            'apellido' => $request['apellido'],
+            'correo' => $request['correo'],
+            'direccion' => $request['direccion']
             ];
         $clientes = $this->doSearchingQuery($constraints);
         return view('clientes-mgmt/index', ['clientes' => $clientes, 'searchingVals' => $constraints]);
