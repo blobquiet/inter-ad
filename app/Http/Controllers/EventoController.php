@@ -102,9 +102,7 @@ class EventoController extends Controller
           $this->validateInput($request);
           $input = [
               'name' => $request['name'],
-              'infoEv' => $request['infoEv'],
-              'fechaEv' => $request['fechaEv'],
-              'fechaFEv' => $request['fechaFEv']
+              'fechaEv' => $request['fechaEv']
           ];
           evento::where('id', $id)
               ->update($input);
@@ -132,8 +130,7 @@ class EventoController extends Controller
        */
       public function search(Request $request) {
           $constraints = [
-              'name' => $request['name'],
-              'infoEv' => $request['infoEv']
+              'name' => $request['name']
               ];
 
          $eventos = $this->doSearchingQuery($constraints);
@@ -155,10 +152,7 @@ class EventoController extends Controller
       }
       private function validateInput($request) {
           $this->validate($request, [
-          'name' => 'required|max:60|unique:evento',
-          'infoEv' => 'required|max:60|unique:evento',
-          'fechaEv' => 'required',
-          'fechaFEv' => 'required'
+          'name' => 'required|max:60|unique:evento'
       ]);
       }
   }

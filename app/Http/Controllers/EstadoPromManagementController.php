@@ -30,8 +30,8 @@ class EstadoPromManagementController extends Controller
     {
         $estadoprom = DB::table('estadoprom')
 
-        ->leftJoin('clientes', 'estadoprom.clientes_id', '=', 'clientes.id')
-        ->leftJoin('promociones', 'estadoprom.promociones_id', '=', 'promociones.id')
+        ->join('clientes', 'estadoprom.clientes_id', '=', 'clientes.id')
+        ->join('promociones', 'estadoprom.promociones_id', '=', 'promociones.id')
         ->select('estadoprom.*', 'clientes.nombre as clientes_name', 'clientes.id as clientes_id', 'promociones.nombre as promociones_name', 'promociones.id as promociones_id')
         ->paginate(5);
 

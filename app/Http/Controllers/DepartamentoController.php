@@ -27,7 +27,7 @@ class DepartamentoController extends Controller
     public function index()
     {
          $departamentos = DB::table('departamento')
-        ->leftJoin('pais', 'departamento.pais_id', '=', 'pais.id')
+        ->join('pais', 'departamento.pais_id', '=', 'pais.id')
         ->select('departamento.id', 'departamento.name', 'pais.name as pais_name', 'pais.id as pais_id')
         ->paginate(5);
         return view('system-mgmt/departamento/index', ['departamentos' => $departamentos]);

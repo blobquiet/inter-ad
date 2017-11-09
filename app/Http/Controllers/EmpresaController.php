@@ -27,7 +27,7 @@ class EmpresaController extends Controller
     public function index()
     {
          $empresas = DB::table('empresa')
-        ->leftJoin('ciudad', 'empresa.ciudad_id', '=', 'ciudad.id')
+        ->join('ciudad', 'empresa.ciudad_id', '=', 'ciudad.id')
         ->select('empresa.id', 'empresa.name', 'ciudad.name as ciudad_name', 'ciudad.id as ciudad_id')
         ->paginate(5);
         return view('system-mgmt/empresa/index', ['empresas' => $empresas]);

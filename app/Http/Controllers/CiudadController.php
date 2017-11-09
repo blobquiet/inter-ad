@@ -27,7 +27,7 @@ class CiudadController extends Controller
     public function index()
     {
          $ciudades = DB::table('ciudad')
-        ->leftJoin('departamento', 'ciudad.departamento_id', '=', 'departamento.id')
+        ->join('departamento', 'ciudad.departamento_id', '=', 'departamento.id')
         ->select('ciudad.id', 'ciudad.name', 'departamento.name as departamento_name', 'departamento.id as departamento_id')
         ->paginate(5);
         return view('system-mgmt/ciudad/index', ['ciudades' => $ciudades]);
