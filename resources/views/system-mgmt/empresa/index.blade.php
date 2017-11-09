@@ -23,8 +23,8 @@
          {{ csrf_field() }}
          @component('layouts.search', ['title' => 'Search'])
 
-          @component('layouts.two-cols-search-row', ['items' => ['Name'],
-          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '']])
+          @component('layouts.two-cols-search-row', ['items' => ['Name', 'Ciudad_name'],
+          'oldVals' => [isset($searchingVals) ? $searchingVals['name'] : '', isset($searchingVals) ? $searchingVals['ciudad_name'] : '']])
 
           @endcomponent
         @endcomponent

@@ -26,6 +26,9 @@ class EmpresaController extends Controller
      */
     public function index()
     {
+
+
+
          $empresas = DB::table('empresa')
         ->join('ciudad', 'empresa.ciudad_id', '=', 'ciudad.id')
         ->select('empresa.id', 'empresa.name', 'ciudad.name as ciudad_name', 'ciudad.id as ciudad_id')
@@ -134,29 +137,37 @@ class EmpresaController extends Controller
      */
     public function search(Request $request) {
         $constraints = [
-            'name' => $request['name']
+            'name' => $request['name'],
+            'ciudad.name' => $request['ciudad_name']
             ];
 
        $empresas = $this->doSearchingQuery($constraints);
+
+       $constraints['ciudad_name'] = $request['ciudad_name'];
        return view('system-mgmt/empresa/index', ['empresas' => $empresas, 'searchingVals' => $constraints]);
     }
 
     private function doSearchingQuery($constraints) {
-        $query = empresa::query();
-        $fields = array_keys($constraints);
-        $index = 0;
-        foreach ($constraints as $constraint) {
-            if ($constraint != null) {
-                $query = $query->where( $fields[$index], 'like', '%'.$constraint.'%');
-            }
+        
 
-            $index++;
+    $query = DB::table('empresa')
+    ->leftJoin('ciudad', 'empresa.ciudad_id', '=', 'ciudad.id')
+    ->select('empresa.name as empresa.name', 'empresa.*','ciudad.name as ciudad_name', 'ciudad.id as ciudad_id');
+    $fields = array_keys($constraints);
+    $index = 0;
+    foreach ($constraints as $constraint) {
+        if ($constraint != null) {
+            $query = $query->where($fields[$index], 'like', '%'.$constraint.'%');
         }
-        return $query->paginate(5);
+
+        $index++;
     }
+    return $query->paginate(5);
+}
     private function validateInput($request) {
         $this->validate($request, [
-        'name' => 'required|max:60|unique:empresa'
+        'name' => 'required|max:60|unique:empresa',
+        'ciudad_id' => 'required'
     ]);
     }
 }
